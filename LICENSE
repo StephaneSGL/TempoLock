@@ -1,0 +1,35 @@
+TempoLock Personal Binary Use License
+
+Copyright (c) 2026 StephaneSGL. All rights reserved.
+
+1. Source code
+
+The TempoLock source code is publicly visible for review and audit. No license is
+granted to use, copy, modify, merge, publish, distribute, sublicense, or sell the
+source code, except for the limited rights that GitHub's Terms of Service require
+to display and fork a public repository.
+
+2. Official APK releases
+
+Permission is granted to an individual to download and install an unmodified,
+officially published TempoLock APK for personal, non-commercial use on Android
+devices that the individual owns or is authorized to administer.
+
+This permission does not include redistribution, resale, modified binaries,
+impersonation of the official project, or use as part of a commercial service.
+Reverse engineering and interoperability rights imposed by applicable law are
+not restricted by this license.
+
+3. Third-party software
+
+Third-party components are licensed separately by their respective copyright
+holders. See THIRD_PARTY_NOTICES.md and the files under licenses/.
+
+4. No warranty
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. IN NO EVENT
+SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+LIABILITY, WHETHER IN CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR
+IN CONNECTION WITH THE SOFTWARE OR ITS USE.

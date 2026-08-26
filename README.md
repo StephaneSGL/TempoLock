@@ -6,6 +6,20 @@ Le projet vise un appareil personnel dédié aux essais ou un émulateur. Ce n'e
 
 > **Avertissement majeur** — La mise en place sur un téléphone déjà utilisé demande généralement une réinitialisation d'usine. Sauvegardez et vérifiez vos données avant toute tentative. Commencez sur un émulateur vierge.
 
+## Télécharger l'APK
+
+- [Télécharger l'APK officielle TempoLock 1.0.0](https://github.com/StephaneSGL/TempoLock/releases/latest/download/TempoLock-1.0.0-release.apk)
+- [Consulter la release, les empreintes et les notices](https://github.com/StephaneSGL/TempoLock/releases/latest)
+
+L'APK officielle exige Android 13 / API 33 ou plus récent. Vérifiez son SHA-256
+et le certificat publiés dans la release avant installation. La clé privée de
+signature n'est jamais incluse dans Git, dans l'APK ni dans les assets publics.
+
+Une installation ordinaire permet d'ouvrir l'application, mais le verrou fort
+anti-désinstallation exige le provisionnement **Device Owner** expliqué dans le
+guide d'installation. Ne réinitialisez pas un téléphone contenant des données
+non sauvegardées.
+
 ## Documentation
 
 - [Installation, build, signature et provisionnement Device Owner](docs/INSTALLATION_FR.md)
@@ -13,6 +27,7 @@ Le projet vise un appareil personnel dédié aux essais ou un émulateur. Ce n'e
 - [Architecture technique et cycle de session](docs/ARCHITECTURE.md)
 - [Modèle de sécurité, garanties et limites](docs/SECURITE.md)
 - [Tests automatisés, captures et E2E sur émulateur](docs/TESTS.md)
+- [Licence TempoLock](LICENSE) et [notices tierces](THIRD_PARTY_NOTICES.md)
 
 Pour une première prise en main, suivez l'installation sur un AVD jetable, puis le scénario E2E avec l'application factice. Lisez le guide de sécurité avant tout provisionnement d'un téléphone contenant des données importantes.
 
@@ -112,7 +127,10 @@ Limite de cette campagne : l'inaccessibilité visuelle de la cible **pendant** l
 
 ## Distribution
 
-La cible actuelle est la **distribution locale uniquement**, par APK signée et installation ADB. Le projet n'inclut pas le parcours d'enrôlement Android Enterprise destiné au grand public ou aux entreprises, tel que le provisionnement par QR code.
+La distribution officielle actuelle est une **release GitHub directe**, par APK
+signée et installation manuelle/ADB. Le projet n'inclut pas le parcours
+d'enrôlement Android Enterprise destiné au grand public ou aux entreprises, tel
+que le provisionnement par QR code.
 
 Une publication Google Play ne doit pas être supposée possible telle quelle : elle demanderait notamment une analyse complète des règles Play, des déclarations de permissions, du statut DPC/Android Enterprise, de la fiche de confidentialité, de la signature et du parcours de suppression. La commande ADB `dpm set-device-owner` est un outil de développement ; Android recommande d'autres méthodes d'enrôlement pour un déploiement réel. Références : [provisionnement des appareils dédiés](https://developer.android.com/work/dpc/dedicated-devices) et [alarmes exactes](https://developer.android.com/develop/background-work/services/alarms).
 
@@ -123,3 +141,11 @@ Une publication Google Play ne doit pas être supposée possible telle quelle : 
 Pour corriger ou faire évoluer l'application sans perdre ce statut, la **clé release privée d'origine est indispensable** : installez une version portant le même identifiant `fr.tempolock.app`, un `versionCode` supérieur et exactement le même certificat. Attendez la fin d'une session active avant la mise à jour. Si cette clé est perdue ou si aucune mise à jour compatible ne peut récupérer l'état, les recours ultimes sont la réinitialisation d'usine ou le reflash de l'appareil, deux opérations destructrices. Voir [docs/INSTALLATION_FR.md](docs/INSTALLATION_FR.md#récupération-après-léchéance).
 
 La procédure opérationnelle, l'absence actuelle d'écran de déprovisionnement et la différence entre déclassement d'APK et version corrective sont détaillées dans [docs/UTILISATION_FR.md](docs/UTILISATION_FR.md#déprovisionnement-désinstallation-et-retour-arrière). Pour évaluer les hypothèses et les contournements hors périmètre, consultez [docs/SECURITE.md](docs/SECURITE.md).
+
+## Licence
+
+Le code source est public pour audit mais reste sous droits réservés. Les APK
+officielles non modifiées peuvent être téléchargées et installées pour un usage
+personnel non commercial selon [LICENSE](LICENSE). Les bibliothèques tierces
+restent soumises à leurs propres licences, détaillées dans
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

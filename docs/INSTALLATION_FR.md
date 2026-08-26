@@ -2,6 +2,11 @@
 
 Cette procédure installe la variante **release** `fr.tempolock.app` et la configure comme Device Owner. Faites d'abord l'essai sur un émulateur vierge. Une erreur de provisionnement sur un téléphone principal peut imposer une réinitialisation d'usine pour revenir à un état normal.
 
+L'APK publique officielle doit être téléchargée depuis la
+[dernière release GitHub](https://github.com/StephaneSGL/TempoLock/releases/latest).
+Vérifiez son SHA-256 et le certificat indiqués dans la release. N'installez pas
+`dist/TempoLock-1.0.0-aligned.apk` : ce fichier intermédiaire n'est pas signé.
+
 Guides associés : [utilisation et récupération](UTILISATION_FR.md), [architecture](ARCHITECTURE.md), [sécurité et limites](SECURITE.md), [tests](TESTS.md) et [accueil du projet](../README.md).
 
 ## 1. Sauvegarder avant toute réinitialisation
