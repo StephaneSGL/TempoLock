@@ -12,6 +12,7 @@ Le projet vise un appareil personnel dédié aux essais ou un émulateur. Ce n'e
 - [Utilisation, récupération, mise à jour et retour arrière](docs/UTILISATION_FR.md)
 - [Architecture technique et cycle de session](docs/ARCHITECTURE.md)
 - [Modèle de sécurité, garanties et limites](docs/SECURITE.md)
+- [Signalement des vulnérabilités et versions prises en charge](SECURITY.md)
 - [Tests automatisés, captures et E2E sur émulateur](docs/TESTS.md)
 
 Pour une première prise en main, suivez l'installation sur un AVD jetable, puis le scénario E2E avec l'application factice. Lisez le guide de sécurité avant tout provisionnement d'un téléphone contenant des données importantes.
