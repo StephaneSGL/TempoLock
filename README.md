@@ -116,9 +116,9 @@ Le découpage des composants, le modèle temporel et la séquence complète sont
 
 ## Statut de validation
 
-État final constaté le 26 août 2026 :
+État final constaté le 27 août 2026 :
 
-- **19 tests unitaires réussis**, sans échec ni erreur ;
+- **20 tests unitaires réussis**, sans échec ni erreur ;
 - **7 tests instrumentés réussis** sur un AVD Android 16 / API 36 : 4 tests Compose UI et 3 tests de `SecureSessionStore` ;
 - validation automatique des captures réussie et revue visuelle de la matrice responsive de **9 configurations** ;
 - E2E Device Owner réussi sur un AVD API 36 jetable et réinitialisé, avec `fr.tempolock.testtarget`, une session d'une minute, la coupure d'ADB par `DISALLOW_DEBUGGING_FEATURES`, un redémarrage dur environ 25 secondes après l'armement, puis la relance et l'observation visuelle de la cible après l'échéance au moyen du contrôle gRPC de l'émulateur.

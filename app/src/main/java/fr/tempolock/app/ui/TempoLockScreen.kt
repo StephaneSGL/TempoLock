@@ -58,6 +58,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -101,6 +102,8 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 import kotlin.math.roundToLong
+
+internal val LocalDeadlineZoneId = staticCompositionLocalOf { ZoneId.systemDefault() }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -569,6 +572,7 @@ private fun ArmButton(enabled: Boolean, isWorking: Boolean, onClick: () -> Unit)
 @Composable
 private fun ActiveLockCard(session: LockSession, remainingMillis: Long) {
     val progress = (remainingMillis.toFloat() / session.durationMillis.toFloat()).coerceIn(0f, 1f)
+    val deadlineZoneId = LocalDeadlineZoneId.current
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -651,7 +655,7 @@ private fun ActiveLockCard(session: LockSession, remainingMillis: Long) {
             ) {
                 Text("Fin prévue", color = MaterialTheme.colorScheme.onSurfaceVariant)
                 Text(
-                    formatDeadline(session.deadlineEpochMillis),
+                    formatDeadline(session.deadlineEpochMillis, deadlineZoneId),
                     style = MaterialTheme.typography.titleLarge,
                 )
                 HorizontalDivider(color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f))
@@ -975,10 +979,13 @@ fun formatCountdown(milliseconds: Long): String {
     }
 }
 
-private fun formatDeadline(epochMillis: Long): String =
+internal fun formatDeadline(
+    epochMillis: Long,
+    zoneId: ZoneId = ZoneId.systemDefault(),
+): String =
     DateTimeFormatter
         .ofPattern("EEEE d MMMM yyyy 'à' HH:mm", Locale.FRENCH)
-        .format(Instant.ofEpochMilli(epochMillis).atZone(ZoneId.systemDefault()))
+        .format(Instant.ofEpochMilli(epochMillis).atZone(zoneId))
         .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.FRENCH) else it.toString() }
 
 private const val CONFIRMATION_PHRASE = "VERROUILLER"

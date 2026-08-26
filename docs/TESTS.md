@@ -6,11 +6,11 @@ Guides associés : [installation](INSTALLATION_FR.md), [utilisation et récupér
 
 ## Statut actuel
 
-Résultats finaux du 26 août 2026 :
+Résultats finaux du 27 août 2026 :
 
 | Couche | Résultat |
 |---|---|
-| Tests unitaires | **19 réussis**, sans échec ni erreur : 17 `SessionCoordinatorTest` et 2 `FormatCountdownTest` |
+| Tests unitaires | **20 réussis**, sans échec ni erreur : 17 `SessionCoordinatorTest` et 3 `FormatCountdownTest` |
 | Instrumentation | **7 réussis** sur AVD Android 16 / API 36 : 4 Compose UI et 3 `SecureSessionStore` |
 | Captures | `:app:validateDebugScreenshotTest` réussi ; revue visuelle manuelle de 9 configurations responsive |
 | E2E Device Owner | Réussi sur un AVD API 36 jetable réinitialisé, avec la réserve détaillée dans la section 4 |
@@ -41,7 +41,7 @@ Depuis la racine du projet, sous PowerShell :
 Résultats attendus :
 
 - chaque commande termine par `BUILD SUCCESSFUL` ;
-- les 19 tests unitaires actuels restent verts ; ils couvrent notamment les bornes de durée, l'exigence Device Owner, le refus sans alarme exacte ou sans heure réseau au démarrage, les transitions transactionnelles, les retours arrière, l'échéance, les nouvelles tentatives, l'usage de l'heure réseau après redémarrage et le formatage du compte à rebours ;
+- les 20 tests unitaires actuels restent verts ; ils couvrent notamment les bornes de durée, l'exigence Device Owner, le refus sans alarme exacte ou sans heure réseau au démarrage, les transitions transactionnelles, les retours arrière, l'échéance, les nouvelles tentatives, l'usage de l'heure réseau après redémarrage, le formatage du compte à rebours et le fuseau explicite de l'échéance ;
 - Lint ne remonte aucune erreur bloquante ;
 - l'APK debug est générée ;
 - la release est générée mais reste non installable tant qu'elle n'est pas signée selon [INSTALLATION_FR.md](INSTALLATION_FR.md#4-construire-et-signer-lapk-release).

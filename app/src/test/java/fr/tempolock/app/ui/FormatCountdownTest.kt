@@ -2,6 +2,7 @@ package fr.tempolock.app.ui
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import java.time.ZoneId
 
 class FormatCountdownTest {
 
@@ -21,6 +22,20 @@ class FormatCountdownTest {
         assertEquals("23:59:59", formatCountdown(86_399_000L))
         assertEquals("1j 00:00:00", formatCountdown(86_400_000L))
         assertEquals("30j 00:00:00", formatCountdown(MAX_LOCK_DURATION_MILLIS))
+    }
+
+    @Test
+    fun `deadline uses the explicit time zone`() {
+        val deadline = 1_788_007_200_000L
+
+        assertEquals(
+            "Samedi 29 août 2026 à 14:40",
+            formatDeadline(deadline, ZoneId.of("Europe/Paris")),
+        )
+        assertEquals(
+            "Samedi 29 août 2026 à 12:40",
+            formatDeadline(deadline, ZoneId.of("UTC")),
+        )
     }
 
     private companion object {
