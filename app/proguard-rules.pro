@@ -1,0 +1,2 @@
+-keep class fr.tempolock.app.receiver.** { *; }
+-keep class fr.tempolock.app.TempoLockApplication { *; }
